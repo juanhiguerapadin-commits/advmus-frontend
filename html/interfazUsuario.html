@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- ✅ OJO: dashboard usa su CSS, NO el de registro -->
+  <link rel="stylesheet" href="../css/interfazUsuario.css" />
+  <title>ADVMUS Capital | Facturas</title>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <div class="row between">
+        <div class="row">
+          <strong>ADVMUS</strong>
+          <span class="badge" id="userBadge">...</span>
+          <span class="badge" id="tenantBadge">...</span>
+        </div>
+
+        <div class="row">
+          <a id="reportIssueLink" href="#" target="_blank" rel="noreferrer">Reportar problema</a>
+          <button id="logoutBtn" type="button">Salir</button>
+        </div>
+      </div>
+
+      <div id="errorBox" class="errorBox"></div>
+    </section>
+
+    <section class="card">
+      <h3>Subir PDF</h3>
+      <div class="row">
+        <input id="fileInput" type="file" accept="application/pdf" />
+        <button id="uploadBtn" type="button">Subir</button>
+        <span id="uploadStatus" class="badge">idle</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h3>Facturas</h3>
+        <button id="refreshBtn" type="button">Actualizar</button>
+      </div>
+
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Archivo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="invoicesTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="detailCard" style="display:none;">
+      <h3>Detalle</h3>
+      <div class="row">
+        <span class="badge" id="detailId">-</span>
+        <span class="badge" id="detailStatus">-</span>
+        <button id="downloadBtn" type="button">Descargar PDF</button>
+      </div>
+
+      <h4 style="margin-top:12px;">Editar metadata</h4>
+      <div class="row wrap">
+        <label class="field">
+          <span>Proveedor</span>
+          <input id="metaVendor" type="text" />
+        </label>
+
+        <label class="field">
+          <span>Fecha</span>
+          <input id="metaDate" type="date" />
+        </label>
+
+        <label class="field">
+          <span>Total</span>
+          <input id="metaTotal" type="number" step="0.01" />
+        </label>
+
+        <button id="saveMetaBtn" type="button">Guardar</button>
+      </div>
+
+      <p class="hint">
+        Tip: si falla algo, copiá el <b>X-Request-Id</b> del error para debug rápido.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="../js/interfaz.js"></script>
+</body>
+</html>
