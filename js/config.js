@@ -1,6 +1,8 @@
 // js/config.js
 export const APP = {
-  API_BASE_URL: "https://advmus-backend-dev-23085158400.southamerica-east1.run.app",
+  API_BASE_URL: "https://advmus-backend-dev-vi5zzwoxhq-rj.a.run.app",
+,
+",
 
   // Por ahora fijo para friends & family (si tu backend hoy lo exige por header).
   TENANT_ID: "family-beta",
